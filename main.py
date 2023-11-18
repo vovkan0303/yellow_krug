@@ -4,12 +4,12 @@ from PyQt5.QtWidgets import QPushButton
 from PyQt5.QtGui import QPainter, QColor, QPolygon
 import sys
 import random
-from PyQt5 import uic
+from UI import Ui_MainWindow
 
 SCREEN_SIZE = [680, 480]
 
 
-class Example(QMainWindow):
+class Example(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -17,7 +17,6 @@ class Example(QMainWindow):
         self.setWindowTitle('Супрематизм')
         self.pushButton.clicked.connect(self.draw)
         self.coords = []
-        uic.loadUi('UI.ui', self)
 
     def draw(self):
         self.figure = 'circle'
